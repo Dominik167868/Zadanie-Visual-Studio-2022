@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .kalkulator {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+<body>
+    <div class="kalkulator">
+        <input type="text" id="wynik" disabled>
+        <br>
+        <button onclick="wybierz('1')">1</button>
+        <button onclick="wybierz('2')">2</button>
+        <button onclick="wybierz('3')">3</button>
+        <button onclick="wybierz('+')">+</button>
+        <br>
+        <button onclick="wybierz('4')">4</button>
+        <button onclick="wybierz('5')">5</button>
+        <button onclick="wybierz('6')">6</button>
+        <button onclick="wybierz('-')">-</button>
+        <br>
+        <button onclick="wybierz('7')">7</button>
+        <button onclick="wybierz('8')">8</button>
+        <button onclick="wybierz('9')">9</button>
+        <button onclick="wybierz('*')">*</button>
+        <br>
+        <button onclick="wybierz('0')">0</button>
+        <button onclick="oblicz()">=</button>
+        <button onclick="wyczysc()">C</button>
+        <button onclick="wybierz('/')">/</button>
+    </div>
+
+    <script>
+        function wybierz(value) {
+            document.getElementById('wynik').value += value;
+        }
+
+        function oblicz() {
+            const resultField = document.getElementById('wynik');
+            resultField.value = eval(resultField.value);
+        }
+
+        function wyczysc() {
+            document.getElementById('wynik').value = '';
+        }
+    </script>
+</body>
+</html>
